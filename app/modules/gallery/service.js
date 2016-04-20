@@ -3,9 +3,9 @@ class GalleryService {
     this._$firebaseArray = $firebaseArray;
 
     /* STEP 1 - CHANGE THE LINE BELOW! Add your Firebase URL */
-    this.ref = new Firebase("your URL goes here");
+    this.ref = new Firebase("https://nms-gallery.firebaseio.com/");
     this.auth = $firebaseAuth(this.ref);
-    $timeout(this.verifyLogin.bind(this), 1000);
+    this.verifyLogin();
   }
 
   verifyLogin() {
@@ -33,6 +33,10 @@ class GalleryService {
     empty strings.
   */
   new() {
+    return {
+      name: "",
+      image: ""
+    }
   }
 
   all() {
@@ -43,6 +47,7 @@ class GalleryService {
     to your Firebase. Remember, this.gallery is your Firebase
     Array */
   add(item) {
+    this.gallery.$add(item);
   }
 
 }
