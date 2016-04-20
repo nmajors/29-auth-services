@@ -11,7 +11,23 @@ class GalleryController {
     trying to create */
 
   addImage() {
+    this.newImage = {
+      name : this.name,
+      image: this.image
+    }
+    this._GalleryService.add(this.newImage);
+    // console.log(this.list);
+    this.name="";
+    this.image="";
+    this.item.fullSize = false;
   }
+
+  toggleSize(item){
+    item.fullSize = !item.fullSize;
+    console.log(item);
+
+  }
+
 }
 
 export default GalleryController;

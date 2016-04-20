@@ -1,0 +1,35 @@
+<div class="container">
+  <form ng-submit="galleryCtrl.addImage()">
+    <input type="url" ng-model="galleryCtrl.image" placeholder="image url">
+    <input type="text" ng-model="galleryCtrl.name" placeholder="image caption">
+
+    <input type="submit" value="Add Image">
+  </form>
+
+  <div class="item" ng-repeat="item in galleryCtrl.list">
+    <div class="fullSize" ng-show="item.fullSize===true">
+      <span>Click on the image to go back to your gallery.</span>
+      <div class="fullSizeImage">
+        <img class="fullSizeImage" ng-click="galleryCtrl.toggleSize(item)" src="{{ item.image }}">
+      </div>
+      <span>Click on the image to go back to your gallery.</span>
+    </div>
+
+    <div class="col-sm-6 col-md-4 galleryItem">
+      <!-- <div class="thumbnail"> -->
+        <img class="galleryItem--image" src="{{ item.image }}">
+        <div class="caption">
+          <h3>{{ item.name }}</h3>
+
+            <button class="viewFullSize" ng-click="galleryCtrl.toggleSize(item)">
+              View Full Size
+            </button>
+
+        </div>
+    <!-- </div> -->
+  </div>
+</div>
+
+
+
+</form>
