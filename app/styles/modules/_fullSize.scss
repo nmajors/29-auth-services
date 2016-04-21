@@ -1,10 +1,12 @@
 .fullSize{
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
   z-index: 1;
   width: 100%;
   min-height: 100vh;
   background-color: rgba(0,0,0,0.8);
-  margin: -121px 0 0 0;
+  // margin: -121px 0 0 0;
   text-align: center;
   color: #ccc;
   font-size: 1.7rem;
