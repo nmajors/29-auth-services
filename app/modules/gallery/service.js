@@ -1,3 +1,4 @@
+
 class GalleryService {
   constructor($firebaseArray, $firebaseAuth, $timeout) {
     this._$firebaseArray = $firebaseArray;
