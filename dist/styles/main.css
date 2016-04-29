@@ -23,9 +23,6 @@ header {
     margin-left: -200px;
     text-shadow: #001433 2px 2px 10px; }
 
-.item {
-  position: relative; }
-
 .galleryItem {
   margin-bottom: 15px;
   margin-left: 15px;
@@ -101,7 +98,7 @@ form {
     margin-bottom: 0; }
 
 .fullSize {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 1;
