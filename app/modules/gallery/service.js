@@ -6,17 +6,14 @@ class GalleryService {
     /* STEP 1 - CHANGE THE LINE BELOW! Add your Firebase URL */
     this.ref = new Firebase("https://nms-gallery.firebaseio.com/");
     this.auth = $firebaseAuth(this.ref);
-    this.verifyLogin();
+    // this.logout();
+    // this.verifyLogin();
+  // }
+  // logout(){
+  //   this.ref.unauth();
   }
-
-  verifyLogin() {
-    let authData = this.auth.$getAuth();
-
-    if (authData) {
-      this.loginUser(authData);
-    } else {
-      this.auth.$authWithOAuthRedirect("github");
-    }
+  isLoggedIn() {
+    return this.auth.$requireAuth();
   }
 
   loginUser(authData) {
