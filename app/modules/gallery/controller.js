@@ -6,11 +6,14 @@ class GalleryController {
     this._GalleryService
       .isLoggedIn()
       .then((response) =>{
-        this._GalleryService.loginUser(response);
+        this.authData = response;
+        this._GalleryService.loginUser(this.authData);
         this.list = this._GalleryService.all();
         this.newImage = this._GalleryService.new();
+        console.log(this.list);
       })
       .catch(() => {
+        // console.log(error);
         this.auth.$authWithOAuthRedirect("github");
       });
 
@@ -31,13 +34,14 @@ class GalleryController {
   addImage() {
     this.newImage = {
       name : this.name,
-      image: this.image
+      image: this.image,
+      fullSize: false
     }
     this._GalleryService.add(this.newImage);
     // console.log(this.list);
     this.name="";
     this.image="";
-    this.item.fullSize = false;
+    // this.item.fullSize = false;
   }
 
   toggleSize(item){
