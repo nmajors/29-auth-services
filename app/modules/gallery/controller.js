@@ -1,9 +1,27 @@
 class GalleryController {
   constructor($firebaseAuth, GalleryService) {
     this._GalleryService = GalleryService;
+    this.auth = this._GalleryService.auth;
 
-    this.list = this._GalleryService.all();
-    this.newImage = this._GalleryService.new();
+    this._GalleryService
+      .isLoggedIn()
+      .then((response) =>{
+        this._GalleryService.loginUser(response);
+        this.list = this._GalleryService.all();
+        this.newImage = this._GalleryService.new();
+      })
+      .catch(() => {
+        this.auth.$authWithOAuthRedirect("github");
+      });
+
+    // isLoggedIn
+      // then
+      //   service.loginUser(response);
+
+      // catch
+        // this.auth.$authWithOAuthRedirect("github");
+
+
   }
 
   /* STEP 1 - This should call the add method on your
