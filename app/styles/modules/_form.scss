@@ -18,8 +18,16 @@ form{
     padding: 2px 10px;
     line-height: 2;
     position: relative;
-    top: -27px;
-    left: 30px;
+    display: block;
+    margin: 15px auto;
+
+    @media screen and(min-width: 1000px){
+      display: inline-block;
+      top: -27px;
+      left: 30px;
+
+
+    }
 
     &:hover, &:focus {
       background: linear-gradient(to bottom,#ff6c5b 0, #ce2c1a 100%);
@@ -36,12 +44,20 @@ form{
     }
   }
   input[type="text"], [type='url']{
-    margin: 15px auto;
+    margin: 15px auto 0 auto;
     padding: 2px;
-    width:360px;
+    @media screen and(min-width: 1000px){
+    margin: 15px auto;
+
+
+    width:calc(95% - 120px);
   }
+}
   input[type='url']{
-    margin-left: -126px;
-    margin-bottom: 0;
+
+    @media screen and(min-width: 1000px){
+      margin-left: -126px;
+      margin-bottom: 0;
+    }
   }
 }
