@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container container-fluid">
   <form ng-submit="galleryCtrl.addImage()">
     <input type="url" ng-model="galleryCtrl.image" placeholder="image url">
     <input type="text" ng-model="galleryCtrl.name" placeholder="image caption">
 
     <input type="submit" value="Add Image">
   </form>
-
+<div class="images">
   <div class="item" ng-repeat="item in galleryCtrl.list">
     <div class="fullSize" ng-show="item.fullSize===true">
       <span>Click on the image to go back to your gallery.</span>
@@ -27,7 +27,7 @@
             </button>
 
 
-    <!-- </div> -->
+    </div>
   </div>
 </div>
 
@@ -37,3 +37,4 @@
 
 
 </form>
+</div>
